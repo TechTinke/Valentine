@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oscar Proposal</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffe6e6;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+        }
+        .heart {
+            position: relative;
+            width: 250px;
+            height: 220px;
+        }
+        .heart::before, .heart::after {
+            content: "";
+            position: absolute;
+            width: 140px;
+            height: 220px;
+            border: 5px dashed red;
+            border-radius: 100px 100px 0 0;
+            top: 0;
+            background: transparent;
+        }
+        .heart::before {
+            left: 50px;
+            transform: rotate(-45deg);
+        }
+        .heart::after {
+            right: 50px;
+            transform: rotate(45deg);
+        }
+        .message {
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            color:black;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .yes {
+            background-color: red;
+            color: white;
+        }
+        .no {
+            background-color: grey;
+            color: white;
+        }
+        .play-music {
+            margin-top: 20px;
+            background-color: pink;
+        }
+        @media (max-width: 600px) {
+            .heart {
+                width: 200px;
+                height: 180px;
+            }
+            .heart::before, .heart::after {
+                width: 120px;
+                height: 180px;
+            }
+            .message {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="heart">
+        <div class="message">Cheryl, will you be my valentine?</div>
+    </div>
+    <div class="buttons">
+        <button class="no">No</button>
+        <button class="yes" onclick="showMessage()">Yes</button>
+    </div>
+    <button class="play-music" onclick="playMusic()">Play Music</button>
+    <audio id="valentineSong" src="venus.mp3"></audio>
+    <script>
+        function showMessage() {
+            alert("Yaaaaaay! Thank You for accepting to be Oscar's Valentine.\n\nVenue: KFC Kimanthi Street.\nTime: 4.45pm.\nWear a pretty dress for your valentine!");
+        }
+        function playMusic() {
+            document.getElementById('valentineSong').play();
+        }
+    </script>
+</body>
+</html>
